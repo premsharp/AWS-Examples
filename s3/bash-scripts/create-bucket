@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "=== Create S3 bucket ========="
+
+if [ -z "$1" ]; then
+    echo "Bucket name is required, example bucket-name" 
+    exit 1
+fi
+
+if [ -z "$2" ]; then
+    echo " Bucket region is required ex: us-east-1" 
+    exit 1
+fi
+
+BUCKET_NAME=$1
+BUCKET_REGIN=$2
+
+aws s3api create-bucket --bucket $BUCKET_NAME --region $BUCKET_REGIN \
+--query Location \
+--output json
+
+echo "=== S3 bucket created ========="

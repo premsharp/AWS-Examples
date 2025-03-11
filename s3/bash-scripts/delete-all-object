@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Bucket name is required, example bucket-name" 
+    exit 1
+fi
+
+
+if [ -z "$2" ]; then
+    echo "body is required, example bucket-name" 
+    exit 1
+fi
+
+
+BUCKET_NAME=$1
+FILE_NAME=$2
+
+#KEY=$(basename "$FILE_NAME")
+
+aws s3api delete-objects --bucket $BUCKET_NAME --delete $FILE_NAME

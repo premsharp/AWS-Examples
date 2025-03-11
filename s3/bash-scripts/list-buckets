@@ -1,0 +1,3 @@
+#!/bin/bash
+
+aws s3api list-buckets --query 'Buckets[?CreationDate!=`null`]|reverse(@)[*].[Name,CreationDate,BucketRegion]' --output table | head -n 10

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "=== sync object ========="
+
+# the below comment if any error occure to stop all bash command
+set e
+
+OUTPUT_DIR="test/file"
+
+rm -r $OUTPUT_DIR
+mkdir -p $OUTPUT_DIR
+chmod u+rwx $OUTPUT_DIR
+
+ 
+NUM_FILES=$((RANDOM % 6 + 5))
+
+for (( i=1; i<=$NUM_FILES; i++ )); do
+  
+ 
+    FILE_NAM="$OUTPUT_DIR/FILE_$i.txt"
+    echo " $FILE_NAM "
+
+    dd if=/dev/urandom of="$FILE_NAM" bs=1024 count=$((RANDOM % 1024 + 1)) 2>/dev/null
+
+
+done
+
+echo " $OUTPUT_DIR "
+
+ls -l $OUTPUT_DIR
+
+aws s3 sync test/file/ s3://my-prem-bucker
