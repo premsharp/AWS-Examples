@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: A sample CloudFormation template with YAML comments.
+# referance https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: test-pksaika-bucket # we not provide bucket name , aws will crate random bucket name

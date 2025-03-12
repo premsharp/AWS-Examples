@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "=== delete stack cloudformation========="
+
+STACK_NAME="prem-test-ss"
+
+aws cloudformation delete-stack \
+    --stack-name $STACK_NAME 

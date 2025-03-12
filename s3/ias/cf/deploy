@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "=== Create S3 bucket using cloud formation CFN ========="
+
+STACK_NAME="prem-test-ss"
+
+absolute_path=$(basename "template.yaml")
+
+echo "$absolute_path"
+
+aws cloudformation deploy --template-file $absolute_path \
+--region us-east-1 \
+--stack-name $STACK_NAME \
+--no-execute-changeset 
