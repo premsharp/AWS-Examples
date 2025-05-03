@@ -1,0 +1,25 @@
+<HTML>
+
+	<HEAD><TITLE> Static Web site </TITLE> </HEAD>
+
+	<body>
+
+		<h1>  This is static page for AWS static web hosting  -- prem s</h1>
+
+		<script type="text/javascript">
+				const xhr = new XMLHttpRequest();
+				xhr.open("POST", "https://g8wjxqdaw1.execute-api.us-east-1.amazonaws.com/prod/hello", true);
+				xhr.setRequestHeader("Content-Type", "application/json");
+
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						console.log("Success:", xhr.responseText);
+					}
+				};
+			
+				xhr.send(null);
+		</script>
+
+	</body>
+
+</HTML>
