@@ -59,3 +59,6 @@ aws s3api put-object \
 aws s3 rb s3://prem-enc-work --force
 
 ```
+
+
+aws s3 mb s3://prem-enc-client-work
